@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MEDITÉ - Plantas Medicinales</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,900&family=Work+Sans:wght@400;500;600;700;800&family=Great+Vibes&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="bloqueado">
+
+<div class="caratula" id="caratula">
+  <div>
+    <!-- TU IMAGEN: guarda tu foto como img/caratula.jpg (se muestra en círculo) -->
+    <img class="car-foto" src="img/caratula.jpg" alt="" onerror="this.style.display='none'">
+    <h1 class="car-titulo">MEDITÉ</h1>
+    <p class="car-lema">Salud y aroma natural</p>
+    <button class="car-btn" onclick="entrar()">Ir</button>
+  </div>
+</div>
+
+
+<header id="inicio" class="hero">
+  <!-- ===== INICIO: IMAGEN DE FONDO (se ve si no hay video o mientras carga) ===== -->
+  <img class="hero-img" id="hero-img" src="img/inicio.jpg" alt="" onerror="this.style.display='none'">
+  <!-- ===== INICIO: VIDEO DE FONDO ===== -->
+  <video autoplay muted loop playsinline id="bg-video" poster="img/inicio.jpg"><source id="bg-source" src="video1.mp4" type="video/mp4"></video>
+ 
+ <div class="overlay"></div>
+  <div class="hero-bg-pattern"></div>
+  <div class="hero-glow"></div>
+  <div class="header-contenido">
+    <img src="logo.jpeg" class="logo-redondo" alt="Logo MEDITÉ" height="500" width="500">
+    <div class="hero-badge"><span class="dot"></span>Elaborado en Sopachuy para ti</div>
+    <p class="sub-logo">BIENESTAR EN CADA TAZA</p>
+    <div class="titulo-colgante">
+      <h2 class="titulo-ing">Pequeños sobres,<br><em>gr<span class="letra">a<span class="adorno a1"><span class="hilo"></span><img src="img/portada1.jpg" alt="MEDITÉ 1"></span></span>ndes benefici<span class="letra">o<span class="adorno a2"><span class="hilo"></span><img src="img/portada2.jpg" alt="MEDITÉ 2"></span></span>s</em></h2>
+      <!-- Las 2 bolitas cuelgan de las letras "a" y "o": cambia solo los nombres de archivo -->
+    </div>
+    <p class="lead">Sobres de té artesanales elaborados con plantas medicinales de nuestro entorno Sopachuy directo a tu taza.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#plantas">Ver nuestras plantas</a>
+      <a class="btn btn-ghost-light" href="https://wa.me/59172857796" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
+    </div>
+    <div class="hero-stats">
+      <div><strong>18</strong><span>plantas medicinales</span></div>
+      <div><strong>15 Bs</strong><span>cada caja de sobres</span></div>
+      <div><strong>Sopachuy</strong><span>Chuquisaca, Bolivia</span></div>
+    </div>
+  </div>
+  <div class="scroll-cue"><span>Desliza</span><i class="line"></i></div>
+</header>
+
+<nav class="nav" id="nav">
+  <div class="container">
+    <a href="#inicio" class="brand"><span class="brand-mark">M</span><span class="brand-text">MEDITÉ<small>Plantas medicinales</small></span></a>
+    <div class="nav-links" id="navLinks">
+      <a href="#inicio">Inicio</a>
+      <a href="#categorias">Categorías</a>
+      <a href="#plantas">Plantas</a>
+      <a href="#granel">A granel</a>
+      <a href="#sobre">Nosotros</a>
+      <a href="#opiniones">Opiniones</a>
+      <a href="#ubicacion">Ubicación</a>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px">
+      <a class="btn btn-primary desktop-only" href="https://wa.me/59172857796" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+      <button class="burger" id="burger" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<section class="burbujas-seccion" id="categorias">
+  <div class="cab-beneficio">
+    <h2 class="titulo-lettering">Elige por Beneficio</h2>
+    <div class="atajos">
+      <button class="btn-atajo oro" onclick="irA('granel')">Presentación a granel</button>
+      <button class="btn-atajo" onclick="irA('plantas')">Tés en bolsitas con su cajita</button>
+    </div>
+  </div>
+  <div class="franja"><div class="pista" id="pista"></div></div>
+</section>
+
+<div class="stitch" aria-hidden="true"></div>
+
+<section class="seccion-plantas" id="plantas">
+  <div class="seccion">
+    <div class="combo-banner"><b>PROMOCIÓN</b><br>Por la compra de <b>5 cajas</b> te llevas <b>1 caja GRATIS de un TÉ a elección</b></div>
+    <h2 class="titulo-seccion">Nuestras Infusiones</h2>
+    <p class="sub-seccion">LA HORA DEL TÉ</p>
+    <div class="grid" id="grid-plantas"></div>
+  </div>
+</section>
+
+<div class="stitch" aria-hidden="true"></div>
+
+<section class="granel-seccion" id="granel">
+  <h2 class="titulo-seccion">Presentación a granel</h2>
+  <p class="sub-seccion">HOJAS SECAS</p>
+  <label for="sel-granel">¿Qué planta quieres?</label>
+  <select id="sel-granel"></select>
+  <div class="fila-granel" id="fila-granel"></div>
+</section>
+
+<div class="stitch" aria-hidden="true"></div>
+
+<section class="sobre-nosotros" id="sobre">
+  <div class="sobre-contenedor">
+    <div class="sobre-texto">
+      <h2>¿Quiénes Somos?</h2>
+      <p>Somos <b>MEDITÉ</b>, un emprendimiento familiar dedicado a la elaboración artesanal de sobres de té a base de plantas medicinales. Este proyecto nace desde casa, con el propósito de crear un producto natural, práctico y elaborado con dedicación.</p>
+      <p>Como creadora de <b>MEDITÉ</b>, me encargo de seleccionar, secar y preparar las plantas medicinales para colocarlas cuidadosamente en cada sobre de té. Busco que cada producto refleje responsabilidad, creatividad y el valor de aprovechar los recursos naturales de nuestro entorno.</p>
+      <p><b>MEDITÉ</b> funcionará principalmente de manera digital, donde las personas podrán conocer nuestros productos y realizar sus pedidos. La elaboración se realizará desde casa y, para quienes lo deseen, también existirá la posibilidad de recoger o comprar el producto directamente en el lugar de elaboración, sin contar con una tienda física abierta al público.</p>
+      <p>Nuestro objetivo es ofrecer una alternativa natural y accesible, mientras desarrollamos un emprendimiento realizado con esfuerzo, creatividad y compromiso.</p>
+    </div>
+    <div class="sobre-img"><img src="sobre-nosotros.jpeg" alt="Elaboración artesanal MEDITÉ"></div>
+  </div>
+</section>
+
+<div class="stitch" aria-hidden="true"></div>
+
+<section class="opiniones" id="opiniones">
+  <h2 class="titulo-seccion">Tu Opinión</h2>
+  <p class="sub-seccion">CUÉNTANOS TU EXPERIENCIA</p>
+  <div class="op-caja">
+    <input id="op-nombre" type="text" placeholder="Tu nombre (opcional)" maxlength="40">
+    <div class="estrellas" id="estrellas" role="group" aria-label="Calificación de 1 a 5 estrellas"></div>
+    <textarea id="op-texto" rows="4" maxlength="400" placeholder="Escribe aquí tu comentario..."></textarea>
+    <button class="btn-wa" onclick="enviarOpinion()">Enviar mi opinión por WhatsApp</button>
+    <p class="nota" style="margin:12px 0 0">Se abrirá WhatsApp con tu mensaje listo para enviarlo a MEDITÉ.</p>
+  </div>
+  <div class="op-lista" id="op-lista"></div>
+</section>
+
+<div class="stitch" aria-hidden="true"></div>
+
+<section class="ubicacion" id="ubicacion">
+  <div class="ubicacion-badge">Elaborado en La Piedra del Encanto - Sopachuy </div>
+  <h2 class="titulo-seccion">Nuestro Hogar Natural</h2>
+  <p class="lugar">La Piedra del Encanto</p>
+  <p class="lugar-sub">Municipio de Sopachuy - Provincia Tomina - Chuquisaca - Bolivia</p>
+  <iframe title="Mapa" src="https://www.google.com/maps?q=La+Piedra+del+Encanto+Sopachuy,Bolivia&z=14&output=embed" style="width:100%;max-width:850px;height:450px;border:none;border-radius:30px"></iframe>
+  <div class="como-llegar">
+    <h4>¿CÓMO LLEGAR?</h4>
+    <p><b>Desde Sucre:</b> Tomar la carretera hacia Padilla. En Sopachuy preguntar por "La Piedra del Encanto".</p>
+    <p><b>Tiempo aprox:</b> 4 a 5 horas desde Sucre</p>
+    <p><b>Referencia:</b> Zona productora de plantas medicinales tradicionales</p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container foot-grid">
+    <div>
+      <div class="brand"><span class="brand-mark">M</span><span class="brand-text">MEDITÉ<small>Pequeños sobres, grandes beneficios</small></span></div>
+      <p>Sobres de té artesanales y a granel de plantas medicinales, elaborados desde casa con amor.</p>
+    </div>
+    <div>
+      <h4>Contacto</h4>
+      <p>WhatsApp: <a href="https://wa.me/59172857796" target="_blank" rel="noopener">72857796</a></p>
+      <p>Municipio de Sopachuy • Provincia Tomina • Chuquisaca • Bolivia</p>
+    </div>
+    <div>
+      <h4>Secciones</h4>
+      <p><a href="#plantas">Plantas</a> • <a href="#granel">A granel</a></p>
+      <p><a href="#opiniones">Opiniones</a> • <a href="#ubicacion">Ubicación</a></p>
+    </div>
+  </div>
+  <div class="foot-bottom">© 2026 MEDITÉ • Todos los derechos reservados</div>
+</footer>
+
+<!-- MODAL DESCRIPCIÓN -->
+<div class="modal" id="modal" onclick="if(event.target===this)cerrarModal()">
+  <div class="modal-contenido">
+    <span class="cerrar-modal" onclick="cerrarModal()">&times;</span>
+    <img id="modal-img" src="" alt="">
+    <h2 id="modal-titulo"></h2>
+    <p class="cientifico" id="modal-cientifico"></p>
+    <p class="categoria" id="modal-categoria"></p>
+    <p class="rp" id="modal-desc"></p>
+    <h4>Propiedades medicinales:</h4>
+    <ul id="modal-propiedades"></ul>
+    <p class="precio-modal" id="modal-precio"></p>
+    <div class="aviso" id="modal-prec"></div>
+    <p class="nota">Uso tradicional. Consulte a un profesional de salud ante cualquier duda.</p>
+    <button class="btn-modal" id="btn-modal-agregar">Agregar al carrito</button>
+  </div>
+</div>
+
+<!-- MODAL RECETARIO -->
+<div class="modal" id="modal-receta" onclick="if(event.target===this)cerrarReceta()">
+  <div class="modal-contenido">
+    <span class="cerrar-modal" onclick="cerrarReceta()">&times;</span>
+    <h2 id="rec-titulo"></h2>
+    <p class="cientifico" id="rec-sub"></p>
+    <h4>Ingredientes</h4>
+    <ul id="rec-ing"></ul>
+    <h4>Preparación</h4>
+    <ol id="rec-pasos"></ol>
+    <h4>Cuándo tomarlo</h4>
+    <p class="rp" id="rec-cuando"></p>
+    <h4>Consejo</h4>
+    <p class="rp" id="rec-extra"></p>
+    <p class="nota">Uso tradicional. No reemplaza la consulta médica; ante embarazo, lactancia o enfermedad, consulte a un profesional de salud.</p>
+    <button class="btn-modal" id="rec-agregar">Agregar al carrito</button>
+  </div>
+</div>
+
+<a href="https://wa.me/59172857796" class="whatsapp" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 32 32" width="36" height="36" fill="#fff"><path d="M16 3C8.8 3 3 8.7 3 15.8c0 2.5.7 4.8 2 6.8L3 29l6.6-1.9c1.9 1 4 1.600 6.400 1.600 7.200 0 13-5.700 13-12.900S23.200 3 16 3zm0 23.500c-2.100 0-4.100-.6-5.800-1.600l-.4-.2-3.900 1.100 1.100-3.800-.3-.4a10.400 10.400 0 0 1-1.700-5.700C5 10.100 10 5.500 16 5.500s11 4.600 11 10.300-5 10.700-11 10.700zm6-7.800c-.3-.2-1.900-.9-2.200-1s-.5-.2-.7.200-.8 1-1 1.200-.4.200-.7.100a8.700 8.700 0 0 1-4.300-3.700c-.3-.6.300-.5.900-1.700.1-.2 0-.4 0-.5l-1-2.300c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.100-.8.400-.3.300-1.100 1.100-1.100 2.600s1.100 3 1.300 3.200c.2.200 2.200 3.400 5.400 4.700 2 .8 2.800.9 3.800.7.600-.1 1.900-.8 2.200-1.500.3-.7.3-1.400.2-1.500l-.7-.4z"/></svg>
+</a>
+
+<div class="carrito-icon" onclick="toggleCarrito()">🛒<span id="contador">0</span></div>
+<div class="carrito-panel" id="carrito">
+  <h3>Tu Selección</h3>
+  <div id="lista-carrito"></div>
+  <div id="gratis"></div>
+  <p class="total-linea">Total: Bs <span id="total">0</span></p>
+  <button class="btn-wa" onclick="enviarWhatsApp()">Pedir por WhatsApp</button>
+  <button class="btn-cerrar" onclick="toggleCarrito()">Cerrar</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
